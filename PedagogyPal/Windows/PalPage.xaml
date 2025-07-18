@@ -1,0 +1,8 @@
+﻿<Window x:Class="PedagogyPal.Windows.PalPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Pal" Height="450" Width="600">
+    <Grid>
+        <TextBlock Text="Pal Page" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+    </Grid>
+</Window>

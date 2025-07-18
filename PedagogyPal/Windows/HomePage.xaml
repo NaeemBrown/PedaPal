@@ -1,0 +1,176 @@
+﻿<!-- HomePage.xaml -->
+<Window x:Class="PedagogyPal.Windows.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PedagogyPal" Height="900" Width="1600"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource BackgroundBrush}">
+
+    <Window.Resources>
+        <!-- SlideInSidebar Storyboard -->
+        <Storyboard x:Key="SlideInSidebar">
+            <DoubleAnimation
+                Storyboard.TargetName="SidebarTranslateTransform"
+                Storyboard.TargetProperty="X"
+                From="-300" To="0"
+                Duration="0:0:0.3" />
+        </Storyboard>
+
+        <!-- SlideOutSidebar Storyboard -->
+        <Storyboard x:Key="SlideOutSidebar">
+            <DoubleAnimation
+                Storyboard.TargetName="SidebarTranslateTransform"
+                Storyboard.TargetProperty="X"
+                From="0" To="-300"
+                Duration="0:0:0.3" />
+        </Storyboard>
+    </Window.Resources>
+
+    <Grid>
+        <!-- Main Content Area -->
+        <Grid>
+            <!-- Header -->
+            <DockPanel Background="{DynamicResource PrimaryBrush}" Height="94" VerticalAlignment="Top">
+                <!-- Hamburger Button -->
+                <Button x:Name="HamburgerButton" Content="☰" Style="{StaticResource HamburgerButtonStyle}"
+                        Width="70" Height="72" Margin="10"
+                        Click="HamburgerButton_Click" DockPanel.Dock="Left"/>
+
+                <!-- Application Title -->
+                <TextBlock Text="PedagogyPal" FontSize="32" FontWeight="Bold" Foreground="White"
+                           VerticalAlignment="Center" Margin="10,0,0,0"
+                           FontFamily="{StaticResource HeaderFont}"/>
+            </DockPanel>
+
+            <!-- Body Content -->
+            <Grid Margin="30,100,30,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Calendar Section -->
+                <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" 
+                        Background="White" 
+                        CornerRadius="10"
+                        BorderBrush="{DynamicResource PrimaryBrush}"
+                        BorderThickness="1"
+                        Padding="20"
+                        Effect="{StaticResource DropShadowEffect}" Margin="0,22,404,0">
+                    <StackPanel>
+                        <!-- Today Button -->
+                        <Button Content="Today" Style="{StaticResource RaisedButtonStyle}" 
+                                Width="140" Click="TodayButton_Click" Margin="0,0,0,20" HorizontalAlignment="Left"/>
+
+                        <!-- Calendar Control -->
+                        <Calendar x:Name="MainCalendar"
+                                  SelectedDate="{Binding SelectedDate, Mode=TwoWay}"
+                                  DisplayDate="{Binding DisplayDate, Mode=TwoWay}"
+                                  Style="{StaticResource CustomCalendarStyle}"
+                                  />
+                    </StackPanel>
+                </Border>
+
+                <!-- Task List Section -->
+                <Border Grid.Row="0" 
+                        Background="White" 
+                        CornerRadius="10"
+                        BorderBrush="{DynamicResource PrimaryBrush}"
+                        BorderThickness="1"
+                        Padding="20"
+                        Effect="{StaticResource DropShadowEffect}" Grid.ColumnSpan="2" Margin="540,24,0,1" Grid.RowSpan="2">
+                    <StackPanel>
+                        <TextBlock Text="Your Tasks" FontSize="26" FontWeight="Bold"
+                                   Foreground="{DynamicResource PrimaryBrush}" Margin="0,0,0,15"
+                                   FontFamily="{StaticResource HeaderFont}"/>
+
+                        <!-- Search and Actions -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                            <TextBox Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" 
+                                     Style="{StaticResource SearchBoxStyle}" 
+                                     Width="400" Height="45" 
+                                     VerticalContentAlignment="Center" />
+                            <Button Content="Clear" Style="{StaticResource OutlinedButtonStyle}" 
+                                    Command="{Binding ClearSearchCommand}" 
+                                    Width="120" Height="45" Margin="15,0,0,0"/>
+                            <Button Content="Show All" Style="{StaticResource OutlinedButtonStyle}" 
+                                    Command="{Binding ClearFilterCommand}" 
+                                    Width="120" Height="45" Margin="15,0,0,0"/>
+                        </StackPanel>
+
+                        <!-- Task List -->
+                        <ListView ItemsSource="{Binding Tasks}" 
+                              SelectedItem="{Binding SelectedTask}" 
+                              Style="{StaticResource StandardListViewStyle}"
+                              ItemContainerStyle="{StaticResource StandardListViewItemStyle}"
+                              ScrollViewer.VerticalScrollBarVisibility="Auto" Height="482">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}" Width="300"/>
+                                    <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding DueDate, StringFormat={}{0:MM/dd/yyyy}}" Width="150"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+
+                        <!-- Task Actions -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,15,0,0">
+                            <Button Content="Add Task" Style="{StaticResource RaisedButtonStyle}" 
+                Command="{Binding AddTaskCommand}" Margin="0,0,15,0" Width="140"/>
+                            <Button Content="Edit Task" Style="{StaticResource OutlinedButtonStyle}" 
+                Command="{Binding EditTaskCommand}" Margin="0,0,15,0" Width="140"/>
+                            <Button Content="Delete Task" Style="{StaticResource OutlinedButtonStyle}" 
+                Command="{Binding DeleteTaskCommand}" Width="140"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- Sidebar Overlay -->
+        <Grid x:Name="Sidebar" Background="{DynamicResource PrimaryBrush}"
+              Panel.ZIndex="10"
+              MouseLeave="Sidebar_MouseLeave"
+              Width="300"
+              HorizontalAlignment="Left" VerticalAlignment="Stretch">
+            <Grid.RenderTransform>
+                <TranslateTransform x:Name="SidebarTranslateTransform" X="-300"/>
+            </Grid.RenderTransform>
+
+            <!-- Sidebar Content -->
+            <Border CornerRadius="0,0,10,10">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="5" Opacity="0.5"/>
+                </Border.Effect>
+                <StackPanel Margin="0,80,0,0">
+                    <!-- Navigation Header -->
+                    <TextBlock Text="Menu" FontSize="24" FontWeight="Bold" Foreground="White"
+                               Margin="20,10,20,30" HorizontalAlignment="Center"
+                               FontFamily="{StaticResource HeaderFont}"/>
+
+                    <!-- Navigation Buttons -->
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <Button Content="Tasks" Style="{StaticResource SidebarButtonWithIconStyle}" Click="NavigateTasks_Click"
+                                    Tag="pack://application:,,,/Images/tasks.png" ToolTip="Tasks"/>
+                            <Button Content="Pal" Style="{StaticResource SidebarButtonWithIconStyle}" Click="NavigatePal_Click"
+                                    Tag="pack://application:,,,/Images/pal.png" ToolTip="Pal"/>
+                            <Button Content="Documents" Style="{StaticResource SidebarButtonWithIconStyle}" Click="NavigateDocuments_Click"
+                                    Tag="pack://application:,,,/Images/documents.png" ToolTip="Documents"/>
+                            <Button Content="Calendar" Style="{StaticResource SidebarButtonWithIconStyle}" Click="NavigateCalendar_Click"
+                                    Tag="pack://application:,,,/Images/calendar.png" ToolTip="Calendar"/>
+                            <Button Content="Settings" Style="{StaticResource SidebarButtonWithIconStyle}" Click="NavigateSettings_Click"
+                                    Tag="pack://application:,,,/Images/settings.png" ToolTip="Settings"/>
+                            <Button Content="Logout" Style="{StaticResource SidebarButtonWithIconStyle}" Click="LogoutButton_Click"
+                                    Tag="pack://application:,,,/Images/logout.png" ToolTip="Logout"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

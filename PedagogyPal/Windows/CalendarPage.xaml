@@ -1,0 +1,8 @@
+﻿<Window x:Class="PedagogyPal.Windows.CalendarPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Calendar" Height="450" Width="600">
+    <Grid>
+        <TextBlock Text="Calendar Page" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+    </Grid>
+</Window>

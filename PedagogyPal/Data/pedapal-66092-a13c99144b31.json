@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "pedapal-66092",
+  "private_key_id": "a13c99144b31c8dd79f87a011af2f5f3071575dc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCW+riA6rHZcmnN\ngz7OJdp/SlhppzWZ35ulQdVU7BZ1e/hPgQe52NDfd4xqzhcyNB41Yf3HawsXLmg2\nHTdYgls9LKXWAjKqLF9M8sQGpS2MJmEerw0wnbBT8yj792EGZJEwex9wJEuxfRFq\nV1+c59v+K+j97+QmzjgccOyPV/aQcuLtvUin+LEIJDIepdAFuFiDBEWyG9xLM9vH\nAzEhDjZpXwa4tQ4iZVDJPR4wrQK3VCWAq6uDrhR/fWdH3EznH2UgxxgRXEgNlmoD\ntJiU5lsUG4Cdbr5ppiiNuzrYoG7vrSSjWLU+lv87cxsjOrV7FGlyZDTnJac6m1m2\nryijLILxAgMBAAECggEABF6nM4l/amONqQJiAWfOcTHU2WF621xRwhyjvNaMr5uu\nABiUIXqTUI1ya6axfI0uPOWsOX7pUjNgViUeNIZI115dAiK8Bkl8nGK4HlheZyyW\n8eM3hLNCrspWUsUaGnwTiPF+U2HEjFN6Kx+SY41hJFQPZTahzgb40CdrTFqLlwqF\nzb5Tp7/XQlzpK3xC5WLJ8R4wtPzP+fgx6AWtUe6B2aiT6Ixho1tQwnOZIkz2/Ff+\nr12o/SHXOzfyfamjeZ+LtXfo+NYzwpXpA8JnrJZYlHvRkmW+jvZ+1GzSTu+J4fiU\nAfoPMbfckgdfk4pK+mTHZr3CZexqVLLNUj/UVSMWAQKBgQDPuWarjRaZsIXDu4/X\n9L6rFUd8ycnPFlVIZqqDi6uI4nuzX0bYiByClfCcULZTWLtvnswJbkWB1PXqtiuA\nWKQT/ffFjj60RHXx6OSRE4u/6yTFiVuTFVCxVVacCqXWyHdl9VRm/qIhqg3FGfD0\n/6nElaG41+YVGNgmJgQU6d5w8QKBgQC6EUW/nrnWVHdp+PrxFl/KvsGxQangFzr1\nOqnc5hdsTxCqCauXri5NoPNNS4ZBd8C/nlQXoYPR9t551GdvtWyaccXKRo+d2ijq\nh9td5ClDS+7WHADjP3mJjWHy1/P9ITNvvFbUWVbEh7pu32zKDDkHzffNNPQb4Vmo\nUXoIOy8yAQKBgCi0IcQ371fKWUvTcwpUMRCBKPLw75SewbNgOsVwFvrJtoedgdpo\nQX3tN6rJvhBy8LecnEq0yvX37wBBFiEePXiVaXnSt8LHL31pr3AmLlo7D4eNtN4L\nbTZyjHgjNf/yZEMcYZ+VAdwq4Gvg+3BmsLOOxpPb6n/z0FcZV+9pLGdhAoGBAJdO\nJmbNPxeQNk7hncZgyGLJPh7TY72LhnEWVD0CineTz9xF4tiEVrjfshnf2XvxUrc/\nm+hfeh9KXd26IKbRZFAvRoTXXkAhwHX/Jh6yw+8qlzxbJ0mkO0PkyYq9m3XzAq3Q\n/NbPE2Tbbnpsiz2+NL4o+mJPtlXZqZvbLZ316soBAoGASanXjDeUmS8ra+dUfw1D\nIuVe3t0pTVp06W+rNKH9nlcn/d0Jn0twrphOn4PQ2R8GRb2ntn/oTQWG0sfRd8Zy\n5yaBeGL3Rbd+YXrp6obUpTRAWi8op24jhX0fHhZQBbkk2KGbXDJeShynXZPql6v+\nJoDzKBvkjhwZWzoh2oqx+zI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "pedapaldrive@pedapal-66092.iam.gserviceaccount.com",
+  "client_id": "105153382655562040288",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/pedapaldrive%40pedapal-66092.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

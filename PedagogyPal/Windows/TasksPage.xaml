@@ -1,0 +1,43 @@
+﻿<!-- TasksPage.xaml -->
+<Window x:Class="PedagogyPal.Windows.TasksPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tasks" Height="500" Width="800">
+    <Grid>
+        <!-- Back Button -->
+        <Button Content="Back" Width="100" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Click="BackButton_Click"/>
+
+        <!-- Main Content Area -->
+        <StackPanel Orientation="Vertical" Margin="10,50,10,10">
+            <!-- Page Title -->
+            <TextBlock Text="Task Manager" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,20"/>
+
+            <!-- Task List -->
+            <ListView x:Name="TaskListView" ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask}" SelectionMode="Single" Height="350">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                        <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding DueDate, StringFormat=d}" Width="150"/>
+                        <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="100"/>
+                        <GridViewColumn Header="Attachment" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Open" 
+                                            Command="{Binding DataContext.DownloadAndOpenDocumentCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                            CommandParameter="{Binding DocumentLink}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <!-- Action Buttons -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button Content="Add Task" Command="{Binding AddTaskCommand}" Width="100" Margin="5"/>
+                <Button Content="Edit Task" Command="{Binding EditTaskCommand}" Width="100" Margin="5"/>
+                <Button Content="Delete Task" Command="{Binding DeleteTaskCommand}" Width="100" Margin="5"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

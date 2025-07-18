@@ -1,0 +1,40 @@
+﻿<!-- Controls/CustomCalendarControl.xaml -->
+<UserControl x:Class="PedagogyPal.Controls.CustomCalendarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="500" Width="700">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Navigation -->
+            <RowDefinition Height="Auto"/>
+            <!-- Days of Week -->
+            <RowDefinition Height="Auto"/>
+            <!-- Dates Grid -->
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Navigation Panel -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+            <Button Content="&#x25C0;" Width="50" Click="PreviousMonth_Click" Style="{StaticResource CalendarNavigationButtonStyle}"/>
+            <TextBlock x:Name="MonthYearText" FontSize="16" FontWeight="Bold" Margin="10,0" VerticalAlignment="Center" Foreground="{DynamicResource TextBrush}"/>
+            <Button Content="&#x25B6;" Width="50" Click="NextMonth_Click" Style="{StaticResource CalendarNavigationButtonStyle}"/>
+        </StackPanel>
+
+        <!-- Days of the Week -->
+        <UniformGrid Grid.Row="1" Columns="7" Margin="0,0,0,10">
+            <TextBlock Text="Sun" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Mon" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Tue" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Wed" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Thu" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Fri" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <TextBlock Text="Sat" FontWeight="Bold" HorizontalAlignment="Center"/>
+        </UniformGrid>
+
+        <!-- Dates Grid -->
+        <UniformGrid Grid.Row="3" Columns="7" Name="DatesGrid">
+            <!-- Dates will be populated dynamically -->
+        </UniformGrid>
+    </Grid>
+</UserControl>
