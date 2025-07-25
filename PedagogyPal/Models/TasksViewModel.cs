@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 using System.Windows.Input;
-using Google.Cloud.Firestore; // Required for Firestore
+using Google.Cloud.Firestore; 
 
 namespace PedagogyPal.ViewModels
 {
@@ -249,7 +249,7 @@ namespace PedagogyPal.ViewModels
         /// </summary>
         private void InitializeCalendarProperties()
         {
-            SelectedDate = null; // Allow all tasks to be displayed initially
+            SelectedDate = null; 
             DisplayDate = DateTime.UtcNow.Date;
         }
 
@@ -434,8 +434,8 @@ namespace PedagogyPal.ViewModels
 
                         // Now, delete the task from Firestore
                         await _firebaseService.DeleteTaskAsync(SelectedTask);
-                        _allTasks.Remove(SelectedTask); // Remove from AllTasks collection
-                        FilterTasks(SearchQuery); // Refresh the Tasks collection based on current search query and selected date
+                        _allTasks.Remove(SelectedTask); 
+                        FilterTasks(SearchQuery); 
                         MessageBox.Show("Task deleted successfully.", "Deleted", MessageBoxButton.OK, MessageBoxImage.Information);
                         Console.WriteLine($"Task '{SelectedTask.Title}' deleted and Tasks collection refreshed.");
                     }
