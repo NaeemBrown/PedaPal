@@ -81,10 +81,6 @@ namespace PedagogyPal.ViewModels
         }
 
         private bool CheckForEvents(DateTime date)
-        {
-            // Implement logic to check if the date has events/tasks
-            // Example: Check if any task in the Tasks collection has this date
-            // return Tasks.Any(t => t.DueDate.Date == date.Date);
             return false; // Placeholder
         }
 
@@ -119,10 +115,8 @@ namespace PedagogyPal.ViewModels
             _selectedDate = new DateTime(_currentDate.Year, _currentDate.Month, selectedDay.Day);
             selectedDay.IsSelected = true;
 
-            // Notify any bound properties or execute related logic
+            // Noti any bound properties or execute related logic
             OnPropertyChanged(nameof(SelectedDate));
-
-            // Optionally, you can add logic here to handle task display for the selected date
         }
 
         public DateTime? SelectedDate => _selectedDate;
