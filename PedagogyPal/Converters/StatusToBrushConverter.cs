@@ -30,7 +30,7 @@ namespace PedagogyPal.Converters
                 case "Overdue":
                     return OverdueBrush;
                 default:
-                    return Brushes.Gray; // Default color for unknown statuses
+                    return Brushes.Gray; 
             }
         }
 
