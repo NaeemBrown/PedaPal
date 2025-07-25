@@ -14,8 +14,7 @@ namespace PedagogyPal.Services
 {
     public class FirebaseService
     {
-        // **IMPORTANT:** Replace with your actual Firebase Web API Key
-        private const string ApiKey = "AIzaSyC-2UIfwA1mMajmPFcR3TheeM_nTd9e3Nc";
+        private const string ApiKey = "xxxyyyzzz";
 
         private readonly FirestoreDb _firestoreDb;
 
@@ -44,7 +43,7 @@ namespace PedagogyPal.Services
             Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", path);
 
             // Initialize FirestoreDb with the project ID
-            _firestoreDb = FirestoreDb.Create("pedapal-66092"); // Replace with your Firebase project ID
+            _firestoreDb = FirestoreDb.Create("pedapal-xxyy"); // 
             Console.WriteLine("Connected to Firestore Database");
         }
 
