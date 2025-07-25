@@ -12,7 +12,5 @@ namespace PedagogyPal.Models
 
         [FirestoreProperty]
         public DateTime CreatedAt { get; set; }
-
-        // Other user properties if any
     }
 }
